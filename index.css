@@ -49,3 +49,61 @@ header{
     color :white;
 }
 
+/* Main content styles */
+main{
+    height: 505px;
+    width: 362px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border: 4px solid #252F42;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+/* Form design */
+.flag {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #999999;
+    margin-left: 0.5rem;
+}
+
+form > p, legend{
+    font-weight: 700;
+    color: #035A9D;
+    font-size: 20px;
+}
+
+textarea{
+    background-color:#EFF0F4;
+    border: none;
+    resize: none;
+    width: 317px;
+    height: 118px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.radio-group{
+    width: 317px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+legend{
+    margin-bottom: 30px;
+}
+
+button{
+    width: 322px;
+    height: 50px;
+    background-color: #035A9D;
+    border-radius: 6px;
+    border: none;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+}
