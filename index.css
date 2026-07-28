@@ -107,3 +107,13 @@ button{
     font-size: 24px;
     color: white;
 }
+
+fieldset{
+    border: none;
+
+}
+
+.warning{
+    color: red;
+    font-size: 24px;
+}

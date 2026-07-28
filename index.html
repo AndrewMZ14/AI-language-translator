@@ -23,24 +23,24 @@
         </div>
     </header>
     <main>
-        <form>
+        <form id="main-form">
             <p id="text-one">Text to Translate 👇</p>
-            <textarea name="" id=""></textarea>
+            <textarea name="english-text" id="english-text" required></textarea>
             
-            <div id="lanuguage-selction">
+            <fieldset id="lanuguage-selction">
                 <legend id="text-two">Select Language 👇</legend>
                 <div class="radio-group">
-                    <input type="radio" value="French" id="frenchBtn">
+                    <input type="radio" value="French" id="frenchBtn" name="languageBtn">
                     <label for="frenchBtn">French <img src="images/fr-flag.png" alt="Flag of France" class="flag"></label><br>
 
-                <input type="radio" value="Spanish" id="spanishBtn">
-                <label for="spanishBtn">Spanish <img src="images/sp-flag.png" alt="Flag of Spain" class="flag"></label><br>
+                    <input type="radio" value="Spanish" id="spanishBtn" name="languageBtn">
+                    <label for="spanishBtn">Spanish <img src="images/sp-flag.png" alt="Flag of Spain" class="flag"></label><br>
 
-                    <input type="radio" value="Japanese" id="japaneseBtn">
+                    <input type="radio" value="Japanese" id="japaneseBtn" name="languageBtn">
                     <label for="japaneseBtn">Japanese <img src="images/jpn-flag.png" alt="Flag of Japan" class="flag"></label><br>
 
                 </div>
-            </div>
+            </fieldset>
 
             <button type="submit">Translate</button>
         </form>
