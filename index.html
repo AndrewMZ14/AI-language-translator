@@ -24,11 +24,12 @@
     </header>
     <main>
         <form id="main-form">
-            <p id="text-one">Text to Translate 👇</p>
+            <p id="text-one" class="main-paragraph">Text to Translate 👇</p>
             <textarea name="english-text" id="english-text" required></textarea>
             
-            <fieldset id="lanuguage-selction">
-                <legend id="text-two">Select Language 👇</legend>
+            <div id="lanuguage-selection">
+                <fieldset>
+                <legend id="text-two" class="main-paragraph">Select Language 👇</legend>
                 <div class="radio-group">
                     <input type="radio" value="French" id="frenchBtn" name="languageBtn">
                     <label for="frenchBtn">French <img src="images/fr-flag.png" alt="Flag of France" class="flag"></label><br>
@@ -43,6 +44,7 @@
             </fieldset>
 
             <button type="submit">Translate</button>
+            </div>
         </form>
     </main>
     <script src="index.js"></script>
