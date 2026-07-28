@@ -1,3 +1,5 @@
+import { marked } from './node_modules/marked/lib/marked.esm.js';
+import DOMPurify from './node_modules/dompurify/dist/purify.es.mjs';
 const form = document.getElementById('main-form')
 const textOne = document.getElementById('text-one')
 const languageSelection = document.getElementById('lanuguage-selection')
@@ -23,19 +25,32 @@ form.addEventListener('submit', async function(e){
         alert('please select a language')
         return
     }
+
+    //Adding loading message while async code is running
+    languageSelection.innerHTML = `<div class="spinner"></div>
+                                    <p class="loading-message">Translating Text</p>`
+
     try{
         const serverData = await serverRequest(language, phrase)
 
+        const parsedData = marked.parse(serverData.translatedText)
+
+        const sanitizedData = DOMPurify.sanitize(parsedData, {RETURN_DOM: true})
+
+        const sanitizedText = sanitizedData.textContent
+
+        console.log(sanitizedText)
         textOne.textContent = "Original Text 👇"
 
         englishTextArea.readOnly = true
 
         languageSelection.innerHTML = `<p class="main-paragraph">Your translation 👇</p>
-                                        <textarea name="english-text" id="translated-text" readonly>${"Hello"}</textarea>
+                                        <textarea name="english-text" id="translated-text" readonly>${sanitizedText}</textarea>
                                         <button type="button" id="restart">Start Over</button>`
     }
     catch(error){
         console.log(error)
+        languageSelection.innerHTML = `<p class="warning">Something went wrong :<</p>`
     }
 })
 
@@ -64,12 +79,16 @@ async function serverRequest(language, phrase){
                                         userInput: phrase
                                       })
     })
+
+    if(!response.ok){
+            throw Error("Server error")
+        }
     const data = await response.json()
     return data
     }
     catch(error){
         console.log(error)
-        return error
+        throw Error("Something went wrong")
     }
 
     

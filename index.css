@@ -84,6 +84,9 @@ textarea{
     height: 118px;
     border-radius: 8px;
     margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333333;
 }
 
 .radio-group{
@@ -125,4 +128,26 @@ fieldset{
 
 #translated-text{
     margin-bottom: 0;
+}
+
+.spinner{
+    height: 120px;
+    width: 120px;
+    border: 6px solid #035A9D;
+    border-color:#035A9D transparent #035A9D transparent;
+    border-radius: 50%;
+    animation: spin 1.3s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+.loading-message{
+    color:#035A9D;
+    font-size: 24px;
 }
