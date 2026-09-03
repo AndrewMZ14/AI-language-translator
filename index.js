@@ -72,7 +72,7 @@ function findSelected(){
 //Function to send selcted language and user input to backend
 async function serverRequest(language, phrase){
     try{
-        const response = await fetch('http://api/data', {method:"POST",
+        const response = await fetch('/api/data', {method:"POST",
                                       headers:{"Content-Type":"application/json"},
                                       body: JSON.stringify({
                                         selectedLanguage: language,
