@@ -4,11 +4,20 @@ import DOMPurify from 'dompurify'
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
+import path from 'node:path'
 
 
 const app = express()
 
 const PORT = process.env.PORT || 3000;
+
+// Serving static files
+app.use(express.static(__dirname));
+
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
 
 app.use(cors())
