@@ -8,6 +8,9 @@ import cors from 'cors'
 
 const app = express()
 
+const PORT = process.env.PORT || 3000;
+
+
 app.use(cors())
 app.use(express.json())
 
@@ -19,6 +22,7 @@ const openai = new OpenAI({
 
 app.post('/api/data', async (req, res) => {
 
+    //messages array to communicate with the LLM
     const messages = [{
     role:"system",
     content:`You are a strict, direct translator. Your only job is to translate the user's input into the requested language.
@@ -29,11 +33,15 @@ app.post('/api/data', async (req, res) => {
         3. Single English words, greetings (like 'hello', 'hi', 'good morning'), and complete sentences are all completely valid inputs. Translate them directly.
         4. If the input is absolute gibberish, a mashup of random letters (like 'asdfghjkl'), or entirely numbers with no translatable text, only then return the exact string: "not a valid phrase".`
 }]
+
+    //prompt object to create user prompt
     const prompt = {
         role:"user",
         content:`Translate this english sentence ${req.body.selectedLanguage} to ${req.body.userInput}`
     }
     messages.push(prompt)
+
+    //AI API call
     try{
         const response = await openai.chat.completions.create({
             model:process.env.AI_MODEL,
