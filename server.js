@@ -56,4 +56,6 @@ app.post('/api/data', async (req, res) => {
     }
 })
 
-app.listen(3000)
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
+});
