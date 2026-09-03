@@ -50,7 +50,7 @@ app.post('/api/data', async (req, res) => {
     //prompt object to create user prompt
     const prompt = {
         role:"user",
-        content:`Translate this english sentence ${req.body.selectedLanguage} to ${req.body.userInput}`
+        content: `Translate this English text into ${req.body.selectedLanguage}: ${req.body.userInput}`
     }
     messages.push(prompt)
 
