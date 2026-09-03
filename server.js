@@ -5,8 +5,7 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import path from 'node:path'
-import path from "path";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "url"
 
 
 const app = express()
